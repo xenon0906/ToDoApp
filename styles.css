@@ -1,4 +1,5 @@
-/* Reset & Base Styles */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -6,185 +7,178 @@
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #121212;
-  color: #e0e0e0;
-  padding: 20px;
-  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  background-color: #0f172a; /* Deep navy */
+  color: #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 20px;
+  gap: 40px;
 }
 
-/* Input Section */
+/* Note Input Section */
 #inputNotes {
-  background-color: #1e1e1e;
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-  margin-bottom: 40px;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-  transition: transform 0.3s ease;
-}
-
-#inputNotes:hover {
-  transform: scale(1.01);
+  background-color: #1e293b;
+  border: 2px solid #334155;
+  border-radius: 20px;
+  padding: 40px 30px;
+  width: 100%;
+  max-width: 700px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 #inputNotes fieldset {
-  border: 1px solid #333;
-  padding: 20px;
-  border-radius: 10px;
+  border: none;
+  padding: 0;
 }
 
 #inputNotes legend {
-  font-weight: bold;
-  color: #90caf9;
-  padding: 0 10px;
-  font-size: 1.2rem;
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 25px;
+  color: #facc15; /* Vibrant yellow */
 }
 
+/* Input Fields */
 input[type="text"],
 textarea {
   width: 100%;
-  padding: 12px;
+  padding: 14px;
   margin-bottom: 20px;
-  background-color: #2c2c2c;
-  color: #ffffff;
-  border: 1px solid #444;
-  border-radius: 6px;
+  background: #0f172a;
+  color: #f1f5f9;
+  border: 1px solid #475569;
+  border-radius: 10px;
   font-size: 1rem;
-  transition: border 0.2s;
+  transition: border-color 0.3s ease;
 }
 
 input[type="text"]:focus,
 textarea:focus {
+  border-color: #38bdf8;
   outline: none;
-  border-color: #00bcd4;
 }
 
 textarea {
   resize: vertical;
-  min-height: 90px;
+  min-height: 100px;
 }
 
+/* Submit Button */
 input[type="submit"] {
-  background-color: #00bcd4;
-  color: #fff;
-  padding: 12px 20px;
+  background-color: #3b82f6;
+  color: white;
+  padding: 12px 24px;
   border: none;
-  border-radius: 6px;
-  cursor: pointer;
+  border-radius: 10px;
   font-size: 1rem;
-  transition: background-color 0.3s ease;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 input[type="submit"]:hover {
-  background-color: #0097a7;
+  background-color: #2563eb;
+  transform: scale(1.05);
 }
 
-/* Display Notes */
+/* Notes Grid */
 #displayNotes {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 25px;
-  max-width: 1100px;
-  margin: 0 auto;
+  width: 100%;
+  max-width: 1200px;
 }
 
+/* Note Card Styling */
 .notes {
-  background-color: #1e1e1e;
-  border: 1px solid #333;
-  border-radius: 10px;
-  padding: 18px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.3s ease;
+  background-color: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 16px;
+  padding: 20px;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 15px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .notes:hover {
-  transform: translateY(-5px);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
 }
 
 .notes .title {
   font-size: 1.3rem;
-  color: #90caf9;
-  margin-bottom: 10px;
+  font-weight: 600;
+  color: #f59e0b; /* Golden accent */
 }
 
 .notes .description {
   font-size: 1rem;
-  color: #ccc;
-  margin-bottom: 15px;
-  flex-grow: 1;
+  color: #cbd5e1;
+  line-height: 1.5;
 }
 
-.notes .note-buttons {
+/* Button Container */
+.note-buttons {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
-  margin-top: 15px;
 }
 
 .notes button {
   padding: 10px 14px;
   border: none;
-  border-radius: 6px;
-  cursor: pointer;
+  border-radius: 8px;
   font-size: 0.95rem;
-  transition: background-color 0.2s ease;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.2s ease;
 }
 
-.notes .delbtn {
-  background-color: #ef5350;
-  color: white;
+.notes button:hover {
+  transform: scale(1.05);
 }
 
-.notes .delbtn:hover {
-  background-color: #d32f2f;
+/* Button Colors */
+.delbtn {
+  background-color: #ef4444;
+  color: #fff;
 }
 
-.notes .updatebtn {
-  background-color: #ffca28;
-  color: #212121;
+.updatebtn {
+  background-color: #fbbf24;
+  color: #1f2937;
 }
 
-.notes .updatebtn:hover {
-  background-color: #fbc02d;
-}
-
-.notes .okBtn {
-  background-color: #66bb6a;
+.okBtn {
+  background-color: #10b981;
   color: white;
   margin-top: 10px;
-  align-self: flex-start;
 }
 
-.notes .okBtn:hover {
-  background-color: #43a047;
-}
-
-/* Inputs inside notes (update mode) */
+/* Editable Input Fields Inside Notes */
 .notes input[type="text"],
 .notes textarea {
-  background-color: #2c2c2c;
-  color: white;
-  border: 1px solid #555;
-  margin-bottom: 10px;
+  background-color: #0f172a;
+  border: 1px solid #475569;
+  color: #f1f5f9;
+  border-radius: 8px;
   padding: 10px;
   width: 100%;
-  border-radius: 4px;
 }
 
-/* Responsive Adjustments */
+/* Responsive Notes */
 @media (max-width: 600px) {
-  #inputNotes {
-    padding: 15px;
+  body {
+    padding: 30px 10px;
   }
 
-  .notes .note-buttons {
+  .note-buttons {
     flex-direction: column;
-    align-items: stretch;
   }
 
   .notes button {
