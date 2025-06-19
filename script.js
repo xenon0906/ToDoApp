@@ -8,7 +8,6 @@ submitBtn.addEventListener('click',(event)=>{
     const currentTitle = title.value;
     const currentDescription = description.value;
 
-    //if user passes empty title and description
     if (!currentTitle && !curretDescription) {
         alert('Please enter a title or description for your task!');
         return; // Stop the function execution
