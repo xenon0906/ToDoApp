@@ -8,7 +8,7 @@ submitBtn.addEventListener('click',(event)=>{
     const currentTitle = title.value;
     const currentDescription = description.value;
 
-    if (!currentTitle && !curretDescription) {
+    if (!currentTitle && !currentDescription) {
         alert('Please enter a title or description for your task!');
         return; // Stop the function execution
     }
